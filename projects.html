@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>All Projects | Karen Mbingu</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@700&family=Plus+Jakarta+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="container animate-fade-down">
+        <header>
+            <a href="index.html" class="brand-logo">
+                <img src="images/KORVA logo.jpeg" alt="Logo">
+            </a>
+            <a href="index.html" class="status-badge">➔ Back to Home</a>
+        </header>
+
+        <section class="projects-hero">
+            <h1 class="hero-name" style="margin-top: 40px; margin-bottom: 10px;">My Posters</h1>
+            <p class="hero-desc" style="max-width: 500px;">Explore visual designs and communication materials created for key organizations.</p>
+        </section>
+
+        <div class="filter-container">
+            <button class="filter-btn active" onclick="filterProjects('all', this)">All Work</button>
+            <button class="filter-btn" onclick="filterProjects('aiesec', this)">AIESEC</button>
+            <button class="filter-btn" onclick="filterProjects('igrtc', this)">IGRTC</button>
+        </div>
+
+        <section class="project-grid" style="margin-top: 20px; margin-bottom: 80px;">
+            
+            <div class="project-card project-item aiesec">
+                <div class="project-img-container">
+                    <img src="images/AIESEC Marathon.jpeg" alt="AIESEC Poster 1">
+                </div>
+                <div class="project-meta">
+                    <div class="proj-num">01</div>
+                    <div class="proj-details">
+                        <h4>Global Youth Leadership</h4>
+                        <p>AIESEC Poster Campaign</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="project-card project-item aiesec">
+                <div class="project-img-container">
+                    <img src="images/AIESEC x ARMELY Partnership.jpeg" alt="AIESEC Poster 2">
+                </div>
+                <div class="project-meta">
+                    <div class="proj-num">02</div>
+                    <div class="proj-details">
+                        <h4>AIESEC YOUTHMONTH</h4>
+                        <p>AIESEC Partnership Poster Campaign</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="project-card project-item aiesec">
+                <div class="project-img-container">
+                    <img src="images/AIESEC Global Village.jpeg" alt="AIESEC Poster 3">
+                </div>
+                <div class="project-meta">
+                    <div class="proj-num">03</div>
+                    <div class="proj-details">
+                        <h4>AIESEC Global Village</h4>
+                        <p>AIESEC Partnership Poster Campaign</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="project-card project-item igrtc">
+                <div class="project-img-container"> 
+                    <img src="images/Sabaki (8).png" alt="IGRTC Poster 1">
+                </div>
+                <div class="project-meta">
+                    <div class="proj-num">04</div>
+                    <div class="proj-details">
+                        <h4>Intergovernmental Report</h4>
+                        <p>IGRTC Public Relations Design</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="project-card project-item igrtc">
+                <div class="project-img-container">
+                    <img src="images/Kipchoge (6).png" alt="IGRTC Poster 2">
+                </div>
+                <div class="project-meta">
+                    <div class="proj-num">05</div>
+                    <div class="proj-details">
+                        <h4>IGRTC Quote of the Day</h4>
+                        <p>IGRTC Public Relations Design</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="project-card project-item aiesec">
+                <div class="project-img-container">
+                    <img src="images/AIESEC Exchange Story.jpeg" alt="AIESEC Poster 4">
+                </div>
+                <div class="project-meta">
+                    <div class="proj-num">06</div>
+                    <div class="proj-details">
+                        <h4>Exchange Program Drive</h4>
+                        <p>AIESEC Marketing Flyer</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="project-card project-item igrtc">
+                <div class="project-img-container">
+                    <img src="images/IGRTC Functions (2).png" alt="IGRTC Poster 3">
+                </div>
+                <div class="project-meta">
+                    <div class="proj-num">07</div>
+                    <div class="proj-details">
+                        <h4>Devolution Conference</h4>
+                        <p>IGRTC Event Branding</p>
+                    </div>
+                </div>
+            </div>
+
+        </section>
+    </div>
+
+    <script>
+        function filterProjects(category, buttonElement) {
+            // 1. Manage active button states
+            const buttons = document.querySelectorAll('.filter-btn');
+            buttons.forEach(btn => btn.classList.remove('active'));
+            if (buttonElement) {
+                buttonElement.classList.add('active');
+            }
+
+            // 2. Filter elements directly overriding CSS !important values
+            const items = document.querySelectorAll('.project-item');
+            items.forEach(item => {
+                if (category === 'all' || item.classList.contains(category)) {
+                    // Restores your layout styling smoothly
+                    item.style.setProperty('display', 'flex', 'important');
+                } else {
+                    // Trumps the CSS file's !important to hide the card completely
+                    item.style.setProperty('display', 'none', 'important');
+                }
+            });
+        }
+    </script>
+
+</body>
+</html>
